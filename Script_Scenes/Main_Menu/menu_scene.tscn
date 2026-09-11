@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjrpxs2rrqbrh"]
+
+[ext_resource type="PackedScene" uid="uid://cpbl5773cc2g1" path="res://Script_Scenes/Parallax/Parallax_Menu/parallax_menu.tscn" id="1_wlnfd"]
+[ext_resource type="Script" uid="uid://ddm7ue5jmfje5" path="res://Script_Scenes/Main_Menu/menu_scene.gd" id="1_yym8s"]
+[ext_resource type="Texture2D" uid="uid://b2mgmlxgh6qqb" path="res://Game_Sprite/Btns/play_btn/play_btn_normal.png" id="3_phfm6"]
+[ext_resource type="Texture2D" uid="uid://55801q4um1mi" path="res://Game_Sprite/Btns/play_btn/play_btn_pressed.png" id="4_cscsn"]
+[ext_resource type="Texture2D" uid="uid://da42rfg3fh8h4" path="res://Game_Sprite/Btns/play_btn/play_btn_hover.png" id="5_v6u6m"]
+[ext_resource type="Texture2D" uid="uid://vo4d4agsksn4" path="res://Game_Sprite/Btns/settings_btn/settings_btn_normal.png" id="6_prr2g"]
+[ext_resource type="Texture2D" uid="uid://b5wa17kwp5bi2" path="res://Game_Sprite/Btns/settings_btn/settings_btn_pressed.png" id="7_e7wmm"]
+[ext_resource type="Texture2D" uid="uid://bopqt0u28gsxn" path="res://Game_Sprite/Btns/settings_btn/settings_btn_hover.png" id="8_j4a8l"]
+[ext_resource type="FontFile" uid="uid://crutk5ngs86jh" path="res://Font_text/Jersey_10/Jersey10-Regular.ttf" id="9_e7wmm"]
+
+[node name="Menu_Scene" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yym8s")
+
+[node name="Parallax_menu" parent="." instance=ExtResource("1_wlnfd")]
+
+[node name="Title_Game" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 20.0
+offset_right = 44.0
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.5803922, 0.3019608, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.03137255, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("9_e7wmm")
+theme_override_font_sizes/font_size = 30
+text = "Op.1 No.6"
+
+[node name="Container_Box" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -62.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 30
+
+[node name="Play_btn" type="TextureButton" parent="Container_Box"]
+layout_mode = 2
+texture_normal = ExtResource("3_phfm6")
+texture_pressed = ExtResource("4_cscsn")
+texture_hover = ExtResource("5_v6u6m")
+
+[node name="Settings_btn" type="TextureButton" parent="Container_Box"]
+layout_mode = 2
+texture_normal = ExtResource("6_prr2g")
+texture_pressed = ExtResource("7_e7wmm")
+texture_hover = ExtResource("8_j4a8l")
+
+[connection signal="pressed" from="Container_Box/Play_btn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Container_Box/Settings_btn" to="." method="_on_settings_btn_pressed"]
