@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Constants to manage speed
-const ACCELERATION : float = 1500.0
-const SPEED = 200.0
+const ACCELERATION : float = 2000.0
+const SPEED = 600.0
 
 # Variables for allowing movement
 @onready var timer_movement : Timer = $TimerMovement
@@ -20,24 +20,25 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 # Manages the player movement
-func _movement(_delta : float) -> void:
+func _movement(delta : float) -> void:
 	if can_move == true:
 		if Input.is_action_just_pressed("left"):
-			velocity.x = -SPEED
+			velocity.x = move_toward(velocity.x, -SPEED, SPEED / 3.0)
 			sprite_2d.play("walking_side")
 			sprite_2d.flip_h = false
 		elif Input.is_action_just_pressed("right"):
-			velocity.x = SPEED
+			velocity.x = move_toward(velocity.x, SPEED, SPEED / 3.0)
 			sprite_2d.play("walking_side")
 			sprite_2d.flip_h = true
 		elif Input.is_action_just_pressed("up"):
-			velocity.y = -SPEED
+			velocity.y = move_toward(velocity.y, -SPEED, SPEED / 3.0)
 			sprite_2d.play("walking_back")
 		elif Input.is_action_just_pressed("down"):
-			velocity.y = SPEED
+			velocity.y = move_toward(velocity.y, SPEED, SPEED / 3.0)
 			sprite_2d.play("walking_front")
 	else:
-		velocity = Vector2.ZERO
+		velocity.x = move_toward(velocity.x, 0.0, ACCELERATION * delta)
+		velocity.y = move_toward(velocity.y, 0.0, ACCELERATION * delta)
 		sprite_2d.play("idle")
 
 # On movement_signal, allows the player to move until the timer_movement's timeout
