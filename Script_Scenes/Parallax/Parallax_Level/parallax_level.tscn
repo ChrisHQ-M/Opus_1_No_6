@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://4hgfwx5rr371"]
+
+[ext_resource type="Script" uid="uid://ck16puyvtfar4" path="res://Script_Scenes/Parallax/Parallax_Level/parallax_level.gd" id="1_ojf7b"]
+[ext_resource type="Texture2D" uid="uid://c3bf0yee2opie" path="res://Game_Sprite/Parallax/parallax.png" id="2_ojf7b"]
+[ext_resource type="Texture2D" uid="uid://ba0aip0ui658m" path="res://Game_Sprite/menu/clouds.png" id="3_ojf7b"]
+
+[node name="Parallax_level" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_ojf7b")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayerBG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(320, 0)
+
+[node name="sprite_bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBG"]
+modulate = Color(0.26657522, 0.2665752, 0.2665752, 1)
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ojf7b")
+centered = false
+
+[node name="ParallaxLayerClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(320, 0)
+
+[node name="sprite_clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerClouds"]
+modulate = Color(0.7176471, 0, 0.45490196, 1)
+texture = ExtResource("3_ojf7b")
+centered = false

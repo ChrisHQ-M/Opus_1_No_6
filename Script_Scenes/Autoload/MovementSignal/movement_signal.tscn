@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://h84hlup0mu0k"]
+
+[ext_resource type="Script" uid="uid://b1w6yj3255ivi" path="res://Script_Scenes/Autoload/MovementSignal/movement_signal.gd" id="1_jt6hm"]
+
+[node name="MovementSignal" type="Node"]
+script = ExtResource("1_jt6hm")

@@ -1,0 +1,137 @@
+[gd_scene load_steps=14 format=4 uid="uid://ca17s8kno7ohq"]
+
+[ext_resource type="Script" uid="uid://csjd8vspp4e1b" path="res://Script_Scenes/Levels/Chapter_1/chapter_1.gd" id="1_h28bj"]
+[ext_resource type="PackedScene" uid="uid://4hgfwx5rr371" path="res://Script_Scenes/Parallax/Parallax_Level/parallax_level.tscn" id="1_n3wb7"]
+[ext_resource type="TileSet" uid="uid://ca3vwsctixtd1" path="res://Script_Scenes/Tilesets/Terrain/terrain_tileset.tres" id="2_k7xlb"]
+[ext_resource type="PackedScene" uid="uid://d2bgpge5257u5" path="res://Script_Scenes/Character/Player/player.tscn" id="4_ybx5g"]
+[ext_resource type="PackedScene" uid="uid://4ebgn35vemas" path="res://Script_Scenes/Levels/Musical_Gauge/musical_gauge.tscn" id="5_xiccx"]
+[ext_resource type="Texture2D" uid="uid://bm64siyas4exm" path="res://Game_Sprite/music_bar/music_bar_progress_blue.png" id="6_sse7y"]
+[ext_resource type="PackedScene" uid="uid://cx6e7xryyn0kl" path="res://Script_Scenes/Notes/Blue_Note/blue_note.tscn" id="7_sse7y"]
+[ext_resource type="FontFile" uid="uid://cjpinp4glelni" path="res://Font_text/Caveat/static/Caveat-Regular.ttf" id="8_wou3w"]
+[ext_resource type="FontFile" uid="uid://bsnjmfne7gxso" path="res://Font_text/Caveat/static/Caveat-Bold.ttf" id="9_nhqv3"]
+[ext_resource type="Script" uid="uid://cdcm2nv13ca21" path="res://Script_Scenes/Levels/Chapter_1/changing_levels.gd" id="10_ab4gw"]
+[ext_resource type="Script" uid="uid://cc3ghguv4tnuv" path="res://Script_Scenes/Levels/Chapter_1/separation_lvl.gd" id="11_cqj8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhqv3"]
+size = Vector2(20, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab4gw"]
+size = Vector2(20, 182)
+
+[node name="Chapter_1" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h28bj")
+
+[node name="Parallax_level" parent="." instance=ExtResource("1_n3wb7")]
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="TerrainTileset" type="TileMapLayer" parent="TileMap"]
+modulate = Color(0.6872149, 0.68721503, 0.6872149, 1)
+tile_map_data = PackedByteArray("AAAHAAYAAAAAAAEAAAAHAAUAAAACAAAAAAAGAAYAAAAHAAEAAAAGAAUAAAABAAIAAAAFAAYAAAABAAIAAAAFAAUAAAAAAAEAAAAEAAYAAAAHAAEAAAAEAAUAAAAHAAEAAAAEAAQAAAAAAAIAAAAFAAQAAAACAAIAAAAFAAcAAAABAAIAAAAGAAQAAAAAAAEAAAAGAAcAAAAAAAAAAAAHAAQAAAACAAEAAAAHAAcAAAAAAAIAAAAJAAUAAAAAAAEAAAAJAAQAAAABAAIAAAAIAAUAAAAHAAEAAAAIAAQAAAAAAAAAAAAFAAMAAAAHAAEAAAAGAAMAAAAAAAIAAAAHAAMAAAABAAIAAAAIAAMAAAAAAAAAAAAIAAYAAAABAAEAAAAJAAYAAAACAAAAAAAPAAgAAAACAAIAAAAPAAcAAAACAAAAAAAPAAYAAAABAAIAAAAPAAUAAAAHAAEAAAAPAAQAAAACAAEAAAAPAAMAAAAAAAEAAAAPAAIAAAACAAAAAAAOAAgAAAACAAIAAAAOAAcAAAABAAEAAAAOAAYAAAACAAEAAAAOAAUAAAAAAAAAAAAOAAQAAAABAAAAAAAOAAMAAAACAAEAAAAOAAIAAAABAAAAAAANAAgAAAACAAAAAAANAAcAAAACAAAAAAANAAYAAAAAAAIAAAANAAUAAAABAAEAAAANAAQAAAABAAIAAAANAAMAAAABAAIAAAANAAIAAAACAAAAAAAMAAgAAAAHAAEAAAAMAAcAAAABAAEAAAAMAAYAAAABAAIAAAAMAAUAAAACAAAAAAAMAAQAAAAAAAEAAAAMAAMAAAAAAAEAAAAMAAIAAAABAAEAAAALAAgAAAACAAEAAAALAAcAAAAAAAAAAAALAAYAAAAAAAIAAAALAAUAAAABAAAAAAALAAQAAAACAAIAAAALAAMAAAACAAEAAAALAAIAAAAAAAEAAAAKAAgAAAAAAAEAAAAKAAcAAAAEAAIAAAAKAAYAAAAEAAEAAAAKAAUAAAAEAAEAAAAKAAQAAAAEAAEAAAAKAAMAAAAEAAAAAAAKAAIAAAABAAAAAAAJAAgAAAAHAAEAAAAJAAcAAAACAAAAAAAJAAMAAAAAAAEAAAAJAAIAAAAAAAEAAAAIAAgAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAIAAAABAAAAAAAHAAgAAAACAAEAAAAHAAIAAAABAAAAAAAGAAgAAAABAAIAAAAGAAIAAAACAAEAAAAFAAgAAAAAAAAAAAAFAAIAAAABAAIAAAAEAAgAAAAAAAEAAAAEAAcAAAACAAEAAAAEAAMAAAABAAEAAAAEAAIAAAACAAIAAAADAAgAAAACAAIAAAADAAcAAAABAAIAAAADAAYAAAAAAAEAAAADAAUAAAACAAIAAAADAAQAAAAHAAEAAAADAAMAAAABAAAAAAADAAIAAAABAAIAAAADAAEAAAAHAAAAAAAEAAEAAAAHAAAAAAAEAAkAAAAHAAIAAAAFAAEAAAAHAAAAAAAFAAkAAAAHAAIAAAAGAAEAAAAHAAAAAAAGAAkAAAAHAAIAAAAHAAEAAAAHAAAAAAAHAAkAAAAHAAIAAAAIAAEAAAAHAAAAAAAIAAkAAAAHAAIAAAAJAAEAAAAHAAAAAAAJAAkAAAAHAAIAAAAKAAEAAAAHAAAAAAAKAAkAAAAHAAIAAAALAAEAAAAHAAAAAAALAAkAAAAHAAIAAAAMAAEAAAAHAAAAAAAMAAkAAAAHAAIAAAANAAEAAAAHAAAAAAANAAkAAAAHAAIAAAAOAAEAAAAHAAAAAAAOAAkAAAAHAAIAAAAPAAkAAAAHAAIAAAAQAAkAAAAHAAIAAAAQAAgAAAACAAIAAAAQAAcAAAACAAIAAAAQAAYAAAACAAAAAAAQAAUAAAACAAIAAAAQAAQAAAAAAAIAAAAQAAMAAAAAAAAAAAAQAAIAAAAAAAIAAAADAAkAAAAHAAIAAAASAAkAAAAIAAIAAAASAAgAAAAIAAEAAAASAAcAAAAIAAEAAAASAAYAAAAEAAMAAAASAAUAAAABAAEAAAASAAQAAAAAAAAAAAASAAMAAAAEAAQAAAASAAIAAAAIAAEAAAASAAEAAAAIAAAAAAARAAkAAAAHAAIAAAARAAgAAAACAAIAAAARAAcAAAAHAAEAAAARAAYAAAABAAIAAAARAAUAAAAAAAIAAAARAAQAAAABAAIAAAARAAMAAAAAAAEAAAARAAIAAAACAAIAAAARAAEAAAAHAAAAAAAQAAEAAAAHAAAAAAAPAAEAAAAHAAAAAAACAAkAAAAHAAIAAAACAAgAAAAAAAIAAAACAAcAAAACAAEAAAACAAYAAAABAAAAAAACAAUAAAAAAAIAAAACAAQAAAAAAAAAAAACAAMAAAABAAIAAAACAAIAAAAAAAAAAAACAAEAAAAHAAAAAAATAAYAAAAHAAIAAAATAAUAAAABAAAAAAATAAQAAAACAAAAAAAUAAYAAAAHAAIAAAAUAAUAAAACAAAAAAAUAAQAAAABAAIAAAAVAAYAAAAHAAIAAAAVAAUAAAACAAAAAAAVAAQAAAAAAAIAAAAVAAMAAAAHAAAAAAAUAAMAAAAHAAAAAAATAAMAAAAHAAAAAAABAAkAAAAGAAIAAAABAAgAAAAGAAEAAAABAAcAAAAGAAEAAAABAAYAAAAGAAEAAAABAAUAAAAGAAEAAAABAAQAAAAGAAEAAAABAAMAAAAGAAEAAAABAAIAAAAGAAEAAAABAAEAAAAGAAAAAAAlAAYAAAAHAAIAAAAlAAUAAAACAAEAAAAlAAQAAAAEAAQAAAAlAAMAAAAIAAAAAAAkAAYAAAAHAAIAAAAkAAUAAAAAAAAAAAAkAAQAAAAHAAAAAAAjAAYAAAAHAAIAAAAjAAUAAAAHAAEAAAAjAAQAAAAHAAAAAAAiAAYAAAAEAAMAAAAiAAUAAAAAAAAAAAAiAAQAAAAHAAAAAAAhAAYAAAACAAIAAAAhAAUAAAAAAAAAAAAhAAQAAAAHAAAAAAAgAAYAAAACAAIAAAAgAAUAAAACAAEAAAAgAAQAAAAHAAAAAAAfAAYAAAACAAIAAAAfAAUAAAABAAIAAAAfAAQAAAAHAAAAAAAeAAYAAAAAAAIAAAAeAAUAAAACAAAAAAAeAAQAAAAHAAAAAAAdAAYAAAAFAAMAAAAdAAUAAAACAAIAAAAdAAQAAAAHAAAAAAAcAAYAAAAHAAIAAAAcAAUAAAABAAIAAAAcAAQAAAAHAAAAAAAbAAYAAAAHAAIAAAAbAAUAAAAAAAEAAAAbAAQAAAAEAAQAAAAbAAMAAAAIAAAAAAAaAAYAAAAHAAIAAAAaAAUAAAACAAIAAAAaAAQAAAACAAAAAAAaAAMAAAAEAAQAAAAZAAYAAAAHAAIAAAAZAAUAAAAAAAAAAAAZAAQAAAACAAIAAAAZAAMAAAABAAAAAAAYAAYAAAAHAAIAAAAYAAUAAAABAAEAAAAYAAQAAAAAAAAAAAAYAAMAAAACAAIAAAAXAAYAAAAHAAIAAAAXAAUAAAABAAIAAAAXAAQAAAABAAAAAAAXAAMAAAAFAAQAAAAWAAYAAAAHAAIAAAAWAAUAAAABAAEAAAAWAAQAAAACAAEAAAAWAAMAAAAHAAAAAAAaAAIAAAAIAAEAAAAaAAEAAAAIAAAAAAAZAAIAAAABAAIAAAAZAAEAAAAHAAAAAAAYAAIAAAAAAAEAAAAYAAEAAAAHAAAAAAAXAAIAAAAGAAEAAAAXAAEAAAAGAAAAAAAiAAkAAAAIAAIAAAAiAAcAAAAIAAIAAAAhAAkAAAAGAAIAAAAhAAcAAAAHAAIAAAAgAAkAAAAHAAIAAAAgAAcAAAAHAAIAAAAfAAkAAAAHAAIAAAAfAAcAAAAHAAIAAAAeAAkAAAAHAAIAAAAeAAcAAAAHAAIAAAAdAAkAAAAGAAIAAAAdAAcAAAAGAAIAAAAoAAYAAAAIAAIAAAAoAAUAAAAIAAEAAAAoAAQAAAAIAAAAAAAnAAYAAAAHAAIAAAAnAAUAAAAAAAAAAAAnAAQAAAAHAAAAAAAmAAYAAAAHAAIAAAAmAAUAAAAAAAIAAAAmAAQAAAAHAAAAAAA=")
+tile_set = ExtResource("2_k7xlb")
+
+[node name="player" parent="." instance=ExtResource("4_ybx5g")]
+position = Vector2(60, 62)
+scale = Vector2(0.4, 0.4)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Musical_Gauge_Blue" parent="UI" instance=ExtResource("5_xiccx")]
+self_modulate = Color(1, 1, 1, 0.56078434)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -26.0
+offset_right = 100.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+bpm = 51.0
+progress = ExtResource("6_sse7y")
+
+[node name="blue_note" parent="UI/Musical_Gauge_Blue" instance=ExtResource("7_sse7y")]
+position = Vector2(85, 16.124987)
+scale = Vector2(0.6250002, 0.7968743)
+
+[node name="blue_note2" parent="UI/Musical_Gauge_Blue" instance=ExtResource("7_sse7y")]
+position = Vector2(170.00002, 16.249994)
+scale = Vector2(0.6250002, 0.7968743)
+
+[node name="Labels_Instructions" type="Node2D" parent="."]
+
+[node name="Label_Instruction" type="Label" parent="Labels_Instructions"]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = 7.0
+offset_right = 255.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0.24313726, 0.9490196)
+theme_override_fonts/font = ExtResource("8_wou3w")
+theme_override_font_sizes/font_size = 10
+text = "You can move only when the red bar cursor turns green
+                   by going through the note."
+
+[node name="Label_Arrow" type="Label" parent="Labels_Instructions"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 289.0
+offset_top = 66.0
+offset_right = 306.0
+offset_bottom = 92.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.41960785, 0.5137255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("9_nhqv3")
+theme_override_font_sizes/font_size = 20
+text = "→"
+
+[node name="Changing_Levels" type="Node2D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("10_ab4gw")
+camera = NodePath("Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="Changing_Levels"]
+position = Vector2(160, 90)
+position_smoothing_enabled = true
+
+[node name="Area_Lvl" type="Area2D" parent="Changing_Levels"]
+position = Vector2(322, 80)
+
+[node name="Collision_area_lvl" type="CollisionShape2D" parent="Changing_Levels/Area_Lvl"]
+position = Vector2(8, 0.5)
+shape = SubResource("RectangleShape2D_nhqv3")
+
+[node name="Box_Collision" type="Node2D" parent="."]
+
+[node name="Separation_Lvl" type="StaticBody2D" parent="Box_Collision"]
+collision_layer = 16
+script = ExtResource("11_cqj8n")
+
+[node name="Collision_LVL1" type="CollisionShape2D" parent="Box_Collision/Separation_Lvl"]
+position = Vector2(310, 91)
+shape = SubResource("RectangleShape2D_ab4gw")
+
+[connection signal="body_entered" from="Changing_Levels/Area_Lvl" to="Changing_Levels" method="_on_area_lvl_body_entered"]

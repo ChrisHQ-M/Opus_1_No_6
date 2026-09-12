@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://4ebgn35vemas"]
+
+[ext_resource type="Texture2D" uid="uid://c1udgjubxuwip" path="res://Game_Sprite/music_bar/music_bar_border.png" id="1_1o02v"]
+[ext_resource type="Texture2D" uid="uid://bm64siyas4exm" path="res://Game_Sprite/music_bar/music_bar_progress_blue.png" id="2_2yaci"]
+[ext_resource type="Script" uid="uid://b2fr87o44esh6" path="res://Script_Scenes/Levels/Musical_Gauge/musical_gauge.gd" id="3_35boi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o02v"]
+size = Vector2(29, 6.25)
+
+[node name="Musical_Gauge" type="TextureProgressBar"]
+texture_filter = 1
+offset_right = 200.0
+offset_bottom = 32.0
+scale = Vector2(1, 0.8)
+texture_over = ExtResource("1_1o02v")
+texture_progress = ExtResource("2_2yaci")
+script = ExtResource("3_35boi")
+
+[node name="CursorArea" type="Area2D" parent="." groups=["Cursor"]]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CursorArea"]
+position = Vector2(-12.5, 15.625)
+shape = SubResource("RectangleShape2D_1o02v")
+
+[node name="ColorRect" type="ColorRect" parent="CursorArea"]
+offset_left = -27.0
+offset_top = 12.5
+offset_right = 2.0
+offset_bottom = 18.75
+color = Color(0.9647059, 0.6392157, 0.64705884, 0.76862746)
+
+[connection signal="area_entered" from="CursorArea" to="." method="_on_cursor_area_area_entered"]
+[connection signal="area_exited" from="CursorArea" to="." method="_on_cursor_area_area_exited"]

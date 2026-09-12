@@ -1,0 +1,209 @@
+[gd_scene load_steps=27 format=3 uid="uid://d2bgpge5257u5"]
+
+[ext_resource type="Texture2D" uid="uid://b72121roqpuo0" path="res://Game_Sprite/Player/player_idle.png" id="1_3vy5i"]
+[ext_resource type="Script" uid="uid://bim3cf8hmcxdf" path="res://Script_Scenes/Character/Player/player.gd" id="1_ju8r6"]
+[ext_resource type="Texture2D" uid="uid://dvbinq2ygwhp0" path="res://Game_Sprite/Player/player_RPG_walking_back.png" id="2_ju8r6"]
+[ext_resource type="Texture2D" uid="uid://be5hbr44svvuc" path="res://Game_Sprite/Player/player_RPG_walking_front.png" id="3_j13q7"]
+[ext_resource type="Texture2D" uid="uid://bsyf21meootg5" path="res://Game_Sprite/Player/player_RPG_walking.png" id="4_027mj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m3gq"]
+atlas = ExtResource("1_3vy5i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0uto"]
+atlas = ExtResource("1_3vy5i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y724c"]
+atlas = ExtResource("1_3vy5i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0puag"]
+atlas = ExtResource("2_ju8r6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytocb"]
+atlas = ExtResource("2_ju8r6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3ilq"]
+atlas = ExtResource("2_ju8r6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l14cj"]
+atlas = ExtResource("2_ju8r6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6puut"]
+atlas = ExtResource("2_ju8r6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b15my"]
+atlas = ExtResource("3_j13q7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtc4j"]
+atlas = ExtResource("3_j13q7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fufn2"]
+atlas = ExtResource("3_j13q7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7heb"]
+atlas = ExtResource("3_j13q7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf6mf"]
+atlas = ExtResource("3_j13q7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0abna"]
+atlas = ExtResource("4_027mj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt3sy"]
+atlas = ExtResource("4_027mj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhr6a"]
+atlas = ExtResource("4_027mj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnewv"]
+atlas = ExtResource("4_027mj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egaeq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m3gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0uto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y724c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0uto")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0puag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytocb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3ilq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytocb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0puag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l14cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6puut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l14cj")
+}],
+"loop": true,
+"name": &"walking_back",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b15my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtc4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fufn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtc4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b15my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7heb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf6mf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7heb")
+}],
+"loop": true,
+"name": &"walking_front",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0abna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt3sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhr6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnewv")
+}],
+"loop": true,
+"name": &"walking_side",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vy5i"]
+size = Vector2(20, 5)
+
+[sub_resource type="Gradient" id="Gradient_ju8r6"]
+offsets = PackedFloat32Array(0, 0.6964286)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j13q7"]
+gradient = SubResource("Gradient_ju8r6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="player" type="CharacterBody2D" groups=["Player"]]
+modulate = Color(0, 0.5970478, 0.5994445, 1)
+texture_filter = 1
+collision_mask = 48
+script = ExtResource("1_ju8r6")
+
+[node name="sprite_2d_player" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_egaeq")
+animation = &"walking_side"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_3vy5i")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(3.4921875, 2.796875)
+color = Color(0.7365873, 0.44214, 0.934797, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_j13q7")
+
+[node name="TimerMovement" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="TimerMovement" to="." method="_on_timer_movement_timeout"]

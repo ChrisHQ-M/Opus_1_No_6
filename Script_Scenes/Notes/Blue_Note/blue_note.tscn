@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://cx6e7xryyn0kl"]
+
+[ext_resource type="Texture2D" uid="uid://qqcr43frsvci" path="res://Game_Sprite/Note/blue_note/blue_note.png" id="1_15kr8"]
+[ext_resource type="Script" uid="uid://dq4ioq72qaa0s" path="res://Script_Scenes/Notes/Blue_Note/blue_note.gd" id="2_6whqr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6whqr"]
+atlas = ExtResource("1_15kr8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kafcm"]
+atlas = ExtResource("1_15kr8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dki22"]
+atlas = ExtResource("1_15kr8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8p61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6whqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kafcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dki22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kafcm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6whqr"]
+radius = 12.0
+
+[node name="blue_note" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_n8p61")
+frame = 2
+frame_progress = 0.37097347
+script = ExtResource("2_6whqr")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Note"]]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6whqr")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
