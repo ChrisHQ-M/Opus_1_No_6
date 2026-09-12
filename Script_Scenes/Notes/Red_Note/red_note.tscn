@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://v811rvu66l7x"]
+
+[ext_resource type="PackedScene" uid="uid://cx6e7xryyn0kl" path="res://Script_Scenes/Notes/Blue_Note/blue_note.tscn" id="1_scfj4"]
+[ext_resource type="Texture2D" uid="uid://dyrliforx2gym" path="res://Game_Sprite/Note/red_note/red_note.png" id="2_au5u0"]
+[ext_resource type="Script" uid="uid://ckfv1kdjdnr8k" path="res://Script_Scenes/Notes/Red_Note/red_note.gd" id="3_au5u0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3orji"]
+atlas = ExtResource("2_au5u0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7my0"]
+atlas = ExtResource("2_au5u0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ah4i"]
+atlas = ExtResource("2_au5u0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lsnub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3orji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7my0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ah4i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="red_note" instance=ExtResource("1_scfj4")]
+sprite_frames = SubResource("SpriteFrames_lsnub")
+frame = 0
+frame_progress = 0.22745734
+script = ExtResource("3_au5u0")

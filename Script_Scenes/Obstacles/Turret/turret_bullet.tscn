@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d06wcspcee6ao"]
+
+[ext_resource type="Texture2D" uid="uid://cbp5ea2xf680q" path="res://Game_Sprite/Obstacles/Turret/bullet.png" id="1_mocfr"]
+[ext_resource type="Script" uid="uid://caaiad1yfyut6" path="res://Script_Scenes/Obstacles/Turret/turret_bullet.gd" id="2_s3rad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mocfr"]
+radius = 5.0
+
+[sub_resource type="Gradient" id="Gradient_s3rad"]
+offsets = PackedFloat32Array(0, 0.5119048)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sj7iy"]
+gradient = SubResource("Gradient_s3rad")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="turret_bullet" type="Sprite2D"]
+modulate = Color(1, 0, 0.28627452, 1)
+texture_filter = 1
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_mocfr")
+script = ExtResource("2_s3rad")
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("CircleShape2D_mocfr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.6383928, 1.4151785)
+color = Color(1, 0, 0, 1)
+energy = 5.0
+texture = SubResource("GradientTexture2D_sj7iy")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

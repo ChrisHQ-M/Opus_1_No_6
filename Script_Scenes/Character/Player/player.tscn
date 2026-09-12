@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2bgpge5257u5"]
+[gd_scene load_steps=28 format=3 uid="uid://d2bgpge5257u5"]
 
 [ext_resource type="Texture2D" uid="uid://b72121roqpuo0" path="res://Game_Sprite/Player/player_idle.png" id="1_3vy5i"]
 [ext_resource type="Script" uid="uid://bim3cf8hmcxdf" path="res://Script_Scenes/Character/Player/player.gd" id="1_ju8r6"]
@@ -181,6 +181,9 @@ gradient = SubResource("Gradient_ju8r6")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ju8r6"]
+size = Vector2(18, 25)
+
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 modulate = Color(0, 0.5970478, 0.5994445, 1)
 texture_filter = 1
@@ -216,5 +219,12 @@ texture = SubResource("GradientTexture2D_j13q7")
 [node name="TimerMovement" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="hitbox" type="Area2D" parent="." groups=["PlayerHitbox"]]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_ju8r6")
 
 [connection signal="timeout" from="TimerMovement" to="." method="_on_timer_movement_timeout"]

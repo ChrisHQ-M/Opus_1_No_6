@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://vuvmiynts5tn"]
+
+[ext_resource type="Script" uid="uid://d1njkqnymlrfx" path="res://Script_Scenes/Obstacles/Turret/turret.gd" id="1_64fv0"]
+[ext_resource type="Texture2D" uid="uid://bku7oi6p68hma" path="res://Game_Sprite/Obstacles/Turret/turret.png" id="1_sdhea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64fv0"]
+atlas = ExtResource("1_sdhea")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txowm"]
+atlas = ExtResource("1_sdhea")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y16d6"]
+atlas = ExtResource("1_sdhea")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r4y3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64fv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txowm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y16d6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sdhea"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64fv0"]
+radius = 147.14285
+
+[node name="turret" type="StaticBody2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_64fv0")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.7490196, 0.42352942, 0.7490196, 1)
+texture_filter = 1
+position = Vector2(-1.9073486e-06, -4.529953e-06)
+sprite_frames = SubResource("SpriteFrames_r4y3r")
+frame_progress = 0.19199277
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_sdhea")
+
+[node name="AreaDetection" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetection"]
+shape = SubResource("CircleShape2D_64fv0")
+
+[connection signal="area_entered" from="AreaDetection" to="." method="_on_area_detection_area_entered"]
+[connection signal="area_exited" from="AreaDetection" to="." method="_on_area_detection_area_exited"]

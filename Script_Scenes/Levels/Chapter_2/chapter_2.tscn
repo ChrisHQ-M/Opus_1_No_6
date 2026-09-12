@@ -1,9 +1,187 @@
-[gd_scene format=3 uid="uid://jj1de0lekc4b"]
+[gd_scene load_steps=22 format=4 uid="uid://jj1de0lekc4b"]
 
-[node name="chapter_2" type="Control"]
+[ext_resource type="Script" uid="uid://rh72rlyxntcw" path="res://Script_Scenes/Class/Chapter/Chapter.gd" id="1_c0iwc"]
+[ext_resource type="AudioStream" uid="uid://dde8sv8g6q3gc" path="res://Sounds/Musics/No_1.mp3" id="2_8ko8a"]
+[ext_resource type="PackedScene" uid="uid://4hgfwx5rr371" path="res://Script_Scenes/Parallax/Parallax_Level/parallax_level.tscn" id="3_c7qo6"]
+[ext_resource type="PackedScene" uid="uid://vt5faf74wjqk" path="res://Script_Scenes/Game_Over_Screen/game_over_screen.tscn" id="3_s6ncy"]
+[ext_resource type="PackedScene" uid="uid://by0jm8y2f3x3" path="res://Script_Scenes/UI/move_cpt/move_cpt.tscn" id="5_g57b4"]
+[ext_resource type="Script" uid="uid://o1ow3ykhpkyr" path="res://Script_Scenes/Levels/Chapter_2/changing_levels.gd" id="5_s6ncy"]
+[ext_resource type="Script" uid="uid://cc3ghguv4tnuv" path="res://Script_Scenes/Levels/Chapter_1/separation_lvl.gd" id="6_c7qo6"]
+[ext_resource type="PackedScene" uid="uid://4ebgn35vemas" path="res://Script_Scenes/Levels/Musical_Gauge/musical_gauge.tscn" id="6_pfm23"]
+[ext_resource type="Texture2D" uid="uid://bm64siyas4exm" path="res://Game_Sprite/music_bar/music_bar_progress_blue.png" id="7_ly4jc"]
+[ext_resource type="TileSet" uid="uid://ca3vwsctixtd1" path="res://Script_Scenes/Tilesets/Terrain/terrain_tileset.tres" id="7_pq8e5"]
+[ext_resource type="Script" uid="uid://b8p87bjym5rsl" path="res://Script_Scenes/Levels/Chapter_2/musical_gauge_blue.gd" id="7_v4xot"]
+[ext_resource type="PackedScene" uid="uid://d2bgpge5257u5" path="res://Script_Scenes/Character/Player/player.tscn" id="8_2pjfq"]
+[ext_resource type="PackedScene" uid="uid://cx6e7xryyn0kl" path="res://Script_Scenes/Notes/Blue_Note/blue_note.tscn" id="8_v4xot"]
+[ext_resource type="Script" uid="uid://dwlxysr565dw5" path="res://Script_Scenes/Levels/Chapter_2/musical_gauge_red.gd" id="9_v4xot"]
+[ext_resource type="PackedScene" uid="uid://v811rvu66l7x" path="res://Script_Scenes/Notes/Red_Note/red_note.tscn" id="10_it8xy"]
+[ext_resource type="Texture2D" uid="uid://ceokxx32w5ae5" path="res://Game_Sprite/music_bar/music_bar_progress_red.png" id="11_lbk2w"]
+[ext_resource type="PackedScene" uid="uid://vuvmiynts5tn" path="res://Script_Scenes/Obstacles/Turret/turret.tscn" id="17_ig3rt"]
+[ext_resource type="FontFile" uid="uid://cjpinp4glelni" path="res://Font_text/Caveat/static/Caveat-Regular.ttf" id="18_t3quv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pjfq"]
+size = Vector2(20, 171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq8e5"]
+size = Vector2(20, 182)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g57b4"]
+size = Vector2(20, 182)
+
+[node name="chapter_2" type="Control" node_paths=PackedStringArray("game_over_screen")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c0iwc")
+music_chp = ExtResource("2_8ko8a")
+game_over_screen = NodePath("UI/Game_Over_Screen")
+
+[node name="Parallax_level" parent="." instance=ExtResource("3_c7qo6")]
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="TerrainTileset" type="TileMapLayer" parent="TileMap"]
+modulate = Color(0.4045111, 0.40451115, 0.4045111, 1)
+texture_filter = 1
+tile_map_data = PackedByteArray("AAARAAgAAAAIAAUAAAARAAcAAAAIAAQAAAARAAYAAAAEAAUAAAARAAUAAAACAAUAAAARAAQAAAAEAAYAAAARAAMAAAAIAAQAAAARAAIAAAAIAAQAAAARAAEAAAAIAAMAAAAQAAgAAAAHAAUAAAAQAAcAAAACAAUAAAAQAAYAAAACAAMAAAAQAAUAAAAAAAUAAAAQAAQAAAABAAUAAAAQAAMAAAACAAUAAAAQAAIAAAAAAAUAAAAQAAEAAAAHAAMAAAAPAAgAAAAHAAUAAAAPAAcAAAAAAAMAAAAPAAYAAAAAAAMAAAAPAAUAAAACAAUAAAAPAAQAAAABAAQAAAAPAAMAAAABAAQAAAAPAAIAAAABAAQAAAAPAAEAAAAHAAMAAAAOAAgAAAAHAAUAAAAOAAcAAAACAAUAAAAOAAYAAAABAAQAAAAOAAUAAAAHAAQAAAAOAAQAAAAAAAQAAAAOAAMAAAACAAQAAAAOAAIAAAAAAAQAAAAOAAEAAAAHAAMAAAANAAgAAAAHAAUAAAANAAcAAAACAAQAAAANAAYAAAAAAAMAAAANAAUAAAABAAUAAAANAAQAAAACAAUAAAANAAMAAAACAAQAAAANAAIAAAAHAAQAAAANAAEAAAAHAAMAAAAMAAgAAAAHAAUAAAAMAAcAAAABAAUAAAAMAAYAAAACAAMAAAAMAAUAAAACAAUAAAAMAAQAAAABAAMAAAAMAAMAAAACAAMAAAAMAAIAAAACAAMAAAAMAAEAAAAHAAMAAAALAAgAAAAHAAUAAAALAAcAAAACAAQAAAALAAYAAAAHAAQAAAALAAUAAAABAAUAAAALAAQAAAAAAAMAAAALAAMAAAACAAMAAAALAAIAAAAAAAUAAAALAAEAAAAHAAMAAAAKAAgAAAAHAAUAAAAKAAcAAAAAAAQAAAAKAAYAAAAAAAMAAAAKAAUAAAABAAUAAAAKAAQAAAABAAQAAAAKAAMAAAABAAMAAAAKAAIAAAAAAAQAAAAKAAEAAAAHAAMAAAAJAAgAAAAHAAUAAAAJAAcAAAACAAMAAAAJAAYAAAABAAQAAAAJAAUAAAABAAMAAAAJAAQAAAAHAAQAAAAJAAMAAAACAAQAAAAJAAIAAAAAAAUAAAAJAAEAAAAHAAMAAAAIAAgAAAAHAAUAAAAIAAcAAAABAAQAAAAIAAYAAAABAAUAAAAIAAUAAAAAAAUAAAAIAAQAAAABAAUAAAAIAAMAAAACAAMAAAAIAAIAAAACAAQAAAAIAAEAAAAHAAMAAAAHAAgAAAAHAAUAAAAHAAcAAAABAAUAAAAHAAYAAAAAAAMAAAAHAAUAAAACAAQAAAAHAAQAAAAAAAUAAAAHAAMAAAACAAMAAAAHAAIAAAABAAMAAAAHAAEAAAAHAAMAAAAGAAgAAAAHAAUAAAAGAAcAAAAHAAQAAAAGAAYAAAAAAAMAAAAGAAUAAAAAAAMAAAAGAAQAAAAAAAQAAAAGAAMAAAACAAQAAAAGAAIAAAABAAMAAAAGAAEAAAAHAAMAAAAFAAgAAAAHAAUAAAAFAAcAAAAAAAUAAAAFAAYAAAAAAAMAAAAFAAUAAAABAAQAAAAFAAQAAAABAAQAAAAFAAMAAAACAAMAAAAFAAIAAAAHAAQAAAAFAAEAAAAHAAMAAAAEAAgAAAAHAAUAAAAEAAcAAAACAAMAAAAEAAYAAAAAAAMAAAAEAAUAAAABAAQAAAAEAAQAAAABAAQAAAAEAAMAAAABAAUAAAAEAAIAAAAAAAQAAAAEAAEAAAAHAAMAAAADAAgAAAAHAAUAAAADAAcAAAAAAAQAAAADAAYAAAAAAAMAAAADAAUAAAAAAAMAAAADAAQAAAACAAQAAAADAAMAAAACAAQAAAADAAIAAAACAAMAAAADAAEAAAAHAAMAAAACAAgAAAAHAAUAAAACAAcAAAABAAMAAAACAAYAAAAAAAUAAAACAAUAAAAAAAQAAAACAAQAAAAAAAMAAAACAAMAAAAAAAMAAAACAAIAAAABAAUAAAACAAEAAAAHAAMAAAABAAgAAAAGAAUAAAABAAcAAAAGAAQAAAABAAYAAAAGAAQAAAABAAUAAAAGAAQAAAABAAQAAAAGAAQAAAABAAMAAAAGAAQAAAABAAIAAAAGAAQAAAABAAEAAAAGAAMAAAAXAAYAAAAIAAUAAAAXAAUAAAAIAAQAAAAXAAQAAAAIAAMAAAAWAAYAAAAHAAUAAAAWAAUAAAABAAUAAAAWAAQAAAAHAAMAAAAVAAYAAAAHAAUAAAAVAAUAAAAHAAQAAAAVAAQAAAAHAAMAAAAUAAYAAAAHAAUAAAAUAAUAAAACAAMAAAAUAAQAAAAHAAMAAAATAAYAAAAHAAUAAAATAAUAAAABAAQAAAATAAQAAAAHAAMAAAASAAYAAAAHAAUAAAASAAUAAAABAAMAAAASAAQAAAAHAAMAAAA=")
+tile_set = ExtResource("7_pq8e5")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Game_Over_Screen" parent="UI" instance=ExtResource("3_s6ncy")]
+visible = false
+
+[node name="move_cpt" parent="UI" instance=ExtResource("5_g57b4")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_right = 57.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.99466497, 0.8707398, 0.462377, 1)
+
+[node name="Musical_Gauge_Blue" parent="UI" instance=ExtResource("6_pfm23")]
+self_modulate = Color(1, 1, 1, 0.56078434)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -42.0
+offset_right = 100.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+script = ExtResource("7_v4xot")
+bpm = 35.0
+progress = ExtResource("7_ly4jc")
+
+[node name="blue_note" parent="UI/Musical_Gauge_Blue" instance=ExtResource("8_v4xot")]
+position = Vector2(28, 16.124987)
+scale = Vector2(0.6250002, 0.7968743)
+chp = 2
+speed = 50.0
+timer_change_dir = 1.2
+
+[node name="blue_note2" parent="UI/Musical_Gauge_Blue" instance=ExtResource("8_v4xot")]
+position = Vector2(170.00002, 16.249994)
+scale = Vector2(0.6250002, 0.7968743)
+chp = 2
+speed = 25.0
+
+[node name="blue_note3" parent="UI/Musical_Gauge_Blue" instance=ExtResource("8_v4xot")]
+position = Vector2(75, 16.124987)
+scale = Vector2(0.6250002, 0.7968743)
+chp = 2
+speed = 25.0
+timer_change_dir = 2.4
+
+[node name="Musical_Gauge_Red" parent="UI" instance=ExtResource("6_pfm23")]
+offset_left = 60.0
+offset_top = 157.0
+offset_right = 260.0
+offset_bottom = 189.0
+script = ExtResource("9_v4xot")
+bpm = 20.0
+progress = ExtResource("11_lbk2w")
+
+[node name="red_note" parent="UI/Musical_Gauge_Red" instance=ExtResource("10_it8xy")]
+position = Vector2(58.999992, 16)
+scale = Vector2(0.62499964, 0.8124998)
+
+[node name="red_note2" parent="UI/Musical_Gauge_Red" instance=ExtResource("10_it8xy")]
+position = Vector2(142, 16)
+scale = Vector2(0.62499964, 0.8124998)
+
+[node name="Changing_Levels" type="Node2D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("5_s6ncy")
+camera = NodePath("Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="Changing_Levels"]
+position = Vector2(160, 90)
+position_smoothing_enabled = true
+
+[node name="Area_Lvl" type="Area2D" parent="Changing_Levels"]
+position = Vector2(322, 80)
+
+[node name="Collision_area_lvl" type="CollisionShape2D" parent="Changing_Levels/Area_Lvl"]
+position = Vector2(8, 9.5)
+shape = SubResource("RectangleShape2D_2pjfq")
+
+[node name="Box_Collision" type="Node2D" parent="."]
+
+[node name="Separation_Lvl" type="StaticBody2D" parent="Box_Collision"]
+collision_layer = 16
+script = ExtResource("6_c7qo6")
+
+[node name="Collision_LVL1" type="CollisionShape2D" parent="Box_Collision/Separation_Lvl"]
+position = Vector2(310, 91)
+shape = SubResource("RectangleShape2D_pq8e5")
+
+[node name="Collision_LVL2" type="CollisionShape2D" parent="Box_Collision/Separation_Lvl"]
+position = Vector2(630, 89)
+shape = SubResource("RectangleShape2D_pq8e5")
+
+[node name="Collision_LVL3" type="CollisionShape2D" parent="Box_Collision/Separation_Lvl"]
+position = Vector2(950, 89)
+shape = SubResource("RectangleShape2D_g57b4")
+
+[node name="Collision_LVL4" type="CollisionShape2D" parent="Box_Collision/Separation_Lvl"]
+position = Vector2(1270, 89)
+shape = SubResource("RectangleShape2D_g57b4")
+
+[node name="Collision_LVL5" type="CollisionShape2D" parent="Box_Collision/Separation_Lvl"]
+position = Vector2(1590, 89)
+shape = SubResource("RectangleShape2D_g57b4")
+
+[node name="player" parent="." instance=ExtResource("8_2pjfq")]
+position = Vector2(50.999996, 64.99999)
+scale = Vector2(0.4, 0.4)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="turret" parent="Obstacles" instance=ExtResource("17_ig3rt")]
+position = Vector2(90.00003, 27)
+
+[node name="turret2" parent="Obstacles" instance=ExtResource("17_ig3rt")]
+position = Vector2(214.00003, 27)
+
+[node name="Instructions" type="Node2D" parent="."]
+
+[node name="Label_Instructions" type="Label" parent="Instructions"]
+texture_filter = 1
+offset_left = 56.0
+offset_top = 122.0
+offset_right = 245.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("18_t3quv")
+theme_override_font_sizes/font_size = 12
+text = "The red notes activate the turrets, be careful !"
+
+[connection signal="body_entered" from="Changing_Levels/Area_Lvl" to="Changing_Levels" method="_on_area_lvl_body_entered"]
