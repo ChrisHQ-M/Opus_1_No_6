@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_wlh70")
 
 [node name="General_bar" type="HSlider" parent="."]
+modulate = Color(0.20392157, 1, 1, 1)
 layout_mode = 0
 offset_top = 35.0
 offset_right = 319.0
@@ -40,6 +41,7 @@ theme_override_font_sizes/font_size = 22
 text = "General"
 
 [node name="Music_bar" type="HSlider" parent="."]
+modulate = Color(1, 0.8235294, 0.16862746, 1)
 layout_mode = 0
 offset_top = 84.0
 offset_right = 319.0
@@ -63,6 +65,7 @@ theme_override_font_sizes/font_size = 22
 text = "Music"
 
 [node name="SFX" type="HSlider" parent="."]
+self_modulate = Color(1, 0.35686275, 1, 1)
 layout_mode = 0
 offset_top = 133.0
 offset_right = 319.0

@@ -36,9 +36,12 @@ func _movement(delta : float) -> void:
 		elif Input.is_action_pressed("down"):
 			velocity.y = move_toward(velocity.y, SPEED, SPEED / 3.0)
 			sprite_2d.play("walking_front")
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, ACCELERATION * delta * 2.0)
+			velocity.y = move_toward(velocity.y, 0.0, ACCELERATION * delta * 2.0)
 	else:
-		velocity.x = move_toward(velocity.x, 0.0, ACCELERATION * delta)
-		velocity.y = move_toward(velocity.y, 0.0, ACCELERATION * delta)
+		velocity.x = move_toward(velocity.x, 0.0, ACCELERATION * delta * 2.0)
+		velocity.y = move_toward(velocity.y, 0.0, ACCELERATION * delta * 2.0)
 		sprite_2d.play("idle")
 
 # On movement_signal, allows the player to move until the timer_movement's timeout

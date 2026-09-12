@@ -33,4 +33,4 @@ func _on_changing_chapter_body_entered(body: Node2D) -> void:
 		TransitionEffects.transition_black_circle()
 		await TransitionEffects.on_transition_finished
 	
-	
+		get_tree().change_scene_to_file("res://Script_Scenes/Levels/Chapter_2/chapter_2.tscn")

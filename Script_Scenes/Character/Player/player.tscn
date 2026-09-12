@@ -214,7 +214,7 @@ shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_j13q7")
 
 [node name="TimerMovement" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.3
 one_shot = true
 
 [connection signal="timeout" from="TimerMovement" to="." method="_on_timer_movement_timeout"]
