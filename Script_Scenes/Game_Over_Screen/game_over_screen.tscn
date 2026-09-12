@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://vt5faf74wjqk"]
+
+[ext_resource type="Script" uid="uid://b7bhjntpe1h8s" path="res://Script_Scenes/Game_Over_Screen/game_over_screen.gd" id="1_05ixa"]
+[ext_resource type="FontFile" uid="uid://bsnjmfne7gxso" path="res://Font_text/Caveat/static/Caveat-Bold.ttf" id="1_bdwck"]
+[ext_resource type="FontFile" uid="uid://cjpinp4glelni" path="res://Font_text/Caveat/static/Caveat-Regular.ttf" id="2_5nll0"]
+
+[node name="Game_Over_Screen" type="Control"]
+process_mode = 2
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_05ixa")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game_over_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 14.0
+offset_right = 45.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_bdwck")
+theme_override_font_sizes/font_size = 32
+text = "Game Over"
+
+[node name="btn_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -18.0
+offset_right = 42.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="try_again_btn" type="Button" parent="btn_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5nll0")
+text = "Try Again"
+
+[node name="back_to_menu_btn" type="Button" parent="btn_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5nll0")
+text = "Back to Menu"
+
+[connection signal="pressed" from="btn_container/try_again_btn" to="." method="_on_try_again_btn_pressed"]
+[connection signal="pressed" from="btn_container/back_to_menu_btn" to="." method="_on_back_to_menu_btn_pressed"]

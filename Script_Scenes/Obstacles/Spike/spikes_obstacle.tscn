@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgxy3gp0yoolu"]
+
+[ext_resource type="Texture2D" uid="uid://lomn2gd0s4pl" path="res://Game_Sprite/Obstacles/Spikes/spike.png" id="1_2fh2j"]
+[ext_resource type="Script" uid="uid://dvcos5cvjbme5" path="res://Script_Scenes/Obstacles/Spike/spikes_obstacle.gd" id="1_62m2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62m2x"]
+atlas = ExtResource("1_2fh2j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w144a"]
+atlas = ExtResource("1_2fh2j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36fgw"]
+atlas = ExtResource("1_2fh2j")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vakni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62m2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w144a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36fgw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fh2j"]
+radius = 10.049875
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62m2x"]
+radius = 14.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_62m2x"]
+polygon = PackedVector2Array(-1, -6, 1, -6, 4, -6, 4, 4, -4, 4, -5, -4)
+
+[node name="spikes_obstacle" type="StaticBody2D"]
+collision_layer = 16
+script = ExtResource("1_62m2x")
+
+[node name="sprite_2d" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.41981313, 0.41981313, 0.4198131, 1)
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_vakni")
+frame = 1
+frame_progress = 0.31275934
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2fh2j")
+
+[node name="AreaDMG" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDMG"]
+shape = SubResource("CircleShape2D_62m2x")
+
+[node name="TimerDir" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_62m2x")
+
+[connection signal="body_entered" from="AreaDMG" to="." method="_on_area_dmg_body_entered"]
+[connection signal="timeout" from="TimerDir" to="." method="_on_timer_dir_timeout"]

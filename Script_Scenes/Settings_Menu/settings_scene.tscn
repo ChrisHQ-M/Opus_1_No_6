@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7615pucrgyeh"]
+
+[ext_resource type="Script" uid="uid://xyeftm54dw3a" path="res://Script_Scenes/Settings_Menu/VolumeSlider.gd" id="1_ewpus"]
+[ext_resource type="Script" uid="uid://bthaejq54eyaf" path="res://Script_Scenes/Settings_Menu/settings_scene.gd" id="1_wlh70"]
+[ext_resource type="FontFile" uid="uid://bsnjmfne7gxso" path="res://Font_text/Caveat/static/Caveat-Bold.ttf" id="3_8uhab"]
+[ext_resource type="PackedScene" uid="uid://cpbl5773cc2g1" path="res://Script_Scenes/Parallax/Parallax_Menu/parallax_menu.tscn" id="4_8uhab"]
+
+[node name="Settings_Scene" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wlh70")
+
+[node name="General_bar" type="HSlider" parent="."]
+layout_mode = 0
+offset_top = 35.0
+offset_right = 319.0
+offset_bottom = 51.0
+script = ExtResource("1_ewpus")
+bus_name = "Master"
+
+[node name="general_label" type="Label" parent="General_bar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.0
+offset_top = -34.0
+offset_right = 28.0
+offset_bottom = -2.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8uhab")
+theme_override_font_sizes/font_size = 22
+text = "General"
+
+[node name="Music_bar" type="HSlider" parent="."]
+layout_mode = 0
+offset_top = 84.0
+offset_right = 319.0
+offset_bottom = 100.0
+script = ExtResource("1_ewpus")
+bus_name = "Music"
+
+[node name="music_label" type="Label" parent="Music_bar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = -34.0
+offset_right = 22.0
+offset_bottom = -2.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.45490196, 0.011764706, 1)
+theme_override_fonts/font = ExtResource("3_8uhab")
+theme_override_font_sizes/font_size = 22
+text = "Music"
+
+[node name="SFX" type="HSlider" parent="."]
+layout_mode = 0
+offset_top = 133.0
+offset_right = 319.0
+offset_bottom = 149.0
+script = ExtResource("1_ewpus")
+bus_name = "SFX"
+
+[node name="sfx_label" type="Label" parent="SFX"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.5
+offset_top = -34.0
+offset_right = 52.5
+offset_bottom = -2.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.69411767, 1, 1)
+theme_override_fonts/font = ExtResource("3_8uhab")
+theme_override_font_sizes/font_size = 22
+text = "Sound Effects"
+
+[node name="back_to_menu_btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.499992
+offset_top = -22.999985
+offset_right = 51.5
+offset_bottom = 6.0000153
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("3_8uhab")
+text = "Back to Menu"
+
+[node name="Parallax_menu" parent="." instance=ExtResource("4_8uhab")]
+
+[connection signal="pressed" from="back_to_menu_btn" to="." method="_on_back_to_menu_btn_pressed"]

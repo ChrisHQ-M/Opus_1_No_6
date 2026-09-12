@@ -36,7 +36,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6whqr"]
-radius = 12.0
+radius = 17.0
 
 [node name="blue_note" type="AnimatedSprite2D"]
 texture_filter = 1

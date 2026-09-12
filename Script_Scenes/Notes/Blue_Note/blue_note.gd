@@ -1,10 +1,7 @@
-extends AnimatedSprite2D
+extends Note
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	play("default")
-
-# When the Musical Gauge's cursor goes through the note, emits movement_signal
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area != null && area.is_in_group("Cursor"):
-		MovementSignal.movement_signal.emit()
+# Enter and execute when the cursor enters in collision
+func _behaviour_entered() -> void:
+	SoundManager.play_blue_note(-5.0, 0.0)
+	MovementSignal.movement_signal.emit()
+	MovementSignal._addCpt()

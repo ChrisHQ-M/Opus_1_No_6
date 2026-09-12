@@ -3,23 +3,6 @@
 [ext_resource type="Script" uid="uid://ihqc831gk8q" path="res://Script_Scenes/Autoload/TransitionEffects/transition_effects.gd" id="1_5pies"]
 [ext_resource type="Texture2D" uid="uid://c0hglvv64mndw" path="res://Game_Sprite/Transitions/transition_circle_black.png" id="1_q0a70"]
 
-[sub_resource type="Animation" id="Animation_5pies"]
-resource_name = "fade_to_black_circle"
-length = 0.35
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite_2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
-}
-
 [sub_resource type="Animation" id="Animation_q0a70"]
 length = 0.001
 tracks/0/type = "value"
@@ -50,6 +33,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_5pies"]
+resource_name = "fade_to_black_circle"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cpwea"]
@@ -117,6 +117,7 @@ animations = [{
 }]
 
 [node name="TransitionEffects" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_5pies")
 
 [node name="AnimationTransition" type="AnimationPlayer" parent="."]

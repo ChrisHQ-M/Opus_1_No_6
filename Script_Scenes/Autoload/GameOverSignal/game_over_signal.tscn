@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqts2xecfc6xq"]
+
+[ext_resource type="Script" uid="uid://ba6wyfod46pw2" path="res://Script_Scenes/Autoload/GameOverSignal/game_over_signal.gd" id="1_lur4a"]
+
+[node name="GameOverSignal" type="Node"]
+script = ExtResource("1_lur4a")

@@ -15,7 +15,7 @@ motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(320, 0)
 
 [node name="sprite_bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerBG"]
-modulate = Color(0.26666668, 0.26666668, 0.4862745, 1)
+modulate = Color(0.120450474, 0.119910054, 0.24424607, 1)
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ojf7b")
@@ -26,6 +26,6 @@ motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(320, 0)
 
 [node name="sprite_clouds" type="Sprite2D" parent="ParallaxBackground/ParallaxLayerClouds"]
-modulate = Color(0.6901961, 0.5411765, 0.43529412, 1)
+modulate = Color(0.4236106, 0.31435773, 0.23587209, 1)
 texture = ExtResource("3_ojf7b")
 centered = false

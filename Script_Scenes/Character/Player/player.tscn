@@ -189,17 +189,28 @@ script = ExtResource("1_ju8r6")
 
 [node name="sprite_2d_player" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_egaeq")
-animation = &"walking_side"
+animation = &"idle"
+
+[node name="ColorRect" type="ColorRect" parent="sprite_2d_player"]
+self_modulate = Color(1, 1, 1, 0.5137255)
+offset_left = -11.0
+offset_top = 14.0
+offset_right = 12.0
+offset_bottom = 19.0
+color = Color(0, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_3vy5i")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(1.9073486e-06, 0)
-scale = Vector2(3.4921875, 2.796875)
-color = Color(0.7365873, 0.44214, 0.934797, 1)
-energy = 1.5
+position = Vector2(-1.9073486e-06, -9.536743e-07)
+scale = Vector2(5.6621094, 4.9023438)
+color = Color(0.7372549, 0.44313726, 0.07450981, 1)
+energy = 10.0
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_j13q7")
 
 [node name="TimerMovement" type="Timer" parent="."]

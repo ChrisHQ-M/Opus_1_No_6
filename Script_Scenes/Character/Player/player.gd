@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Constants to manage speed
 const ACCELERATION : float = 2000.0
-const SPEED = 600.0
+const SPEED = 200.0
 
 # Variables for allowing movement
 @onready var timer_movement : Timer = $TimerMovement
@@ -22,18 +22,18 @@ func _physics_process(delta: float) -> void:
 # Manages the player movement
 func _movement(delta : float) -> void:
 	if can_move == true:
-		if Input.is_action_just_pressed("left"):
+		if Input.is_action_pressed("left"):
 			velocity.x = move_toward(velocity.x, -SPEED, SPEED / 3.0)
 			sprite_2d.play("walking_side")
 			sprite_2d.flip_h = false
-		elif Input.is_action_just_pressed("right"):
+		elif Input.is_action_pressed("right"):
 			velocity.x = move_toward(velocity.x, SPEED, SPEED / 3.0)
 			sprite_2d.play("walking_side")
 			sprite_2d.flip_h = true
-		elif Input.is_action_just_pressed("up"):
+		elif Input.is_action_pressed("up"):
 			velocity.y = move_toward(velocity.y, -SPEED, SPEED / 3.0)
 			sprite_2d.play("walking_back")
-		elif Input.is_action_just_pressed("down"):
+		elif Input.is_action_pressed("down"):
 			velocity.y = move_toward(velocity.y, SPEED, SPEED / 3.0)
 			sprite_2d.play("walking_front")
 	else:

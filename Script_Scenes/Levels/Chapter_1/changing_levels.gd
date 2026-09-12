@@ -1,5 +1,7 @@
 extends Node2D
 
+signal change_note_behaviour
+
 var current_lvl : int = 1
 
 @export var camera : Camera2D
@@ -21,3 +23,14 @@ func _on_area_lvl_body_entered(body: Node2D) -> void:
 		# Prevents the player from going in a previous level
 		separation_lvl._activate_collision(current_lvl - 1)
 		current_lvl += 1
+		
+		if current_lvl == 4:
+			change_note_behaviour.emit()
+
+
+func _on_changing_chapter_body_entered(body: Node2D) -> void:
+	if body != null && body.is_in_group("Player"):
+		TransitionEffects.transition_black_circle()
+		await TransitionEffects.on_transition_finished
+	
+	

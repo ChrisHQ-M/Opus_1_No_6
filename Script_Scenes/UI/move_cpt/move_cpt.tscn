@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://by0jm8y2f3x3"]
+
+[ext_resource type="FontFile" uid="uid://dh3jr2xukdx0x" path="res://Font_text/Caveat/static/Caveat-Medium.ttf" id="1_412m0"]
+[ext_resource type="Script" uid="uid://cn3ufcirb7mi7" path="res://Script_Scenes/UI/move_cpt/move_cpt.gd" id="2_bbdh3"]
+[ext_resource type="FontFile" uid="uid://cjpinp4glelni" path="res://Font_text/Caveat/static/Caveat-Regular.ttf" id="3_fi55s"]
+
+[node name="move_cpt" type="Label"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.12941177, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_412m0")
+text = "Notes counter :"
+script = ExtResource("2_bbdh3")
+
+[node name="score_label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 89.0
+offset_right = 111.0
+offset_bottom = 21.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fi55s")
+text = "0"

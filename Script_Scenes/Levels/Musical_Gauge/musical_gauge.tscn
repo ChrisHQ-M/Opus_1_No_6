@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://b2fr87o44esh6" path="res://Script_Scenes/Levels/Musical_Gauge/musical_gauge.gd" id="3_35boi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1o02v"]
-size = Vector2(29, 6.25)
+size = Vector2(41, 6.25)
 
 [node name="Musical_Gauge" type="TextureProgressBar"]
 texture_filter = 1
@@ -21,11 +21,11 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorArea"]
-position = Vector2(-12.5, 15.625)
+position = Vector2(-18.5, 15.625)
 shape = SubResource("RectangleShape2D_1o02v")
 
 [node name="ColorRect" type="ColorRect" parent="CursorArea"]
-offset_left = -27.0
+offset_left = -39.0
 offset_top = 12.5
 offset_right = 2.0
 offset_bottom = 18.75

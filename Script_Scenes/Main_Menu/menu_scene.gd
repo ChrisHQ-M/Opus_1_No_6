@@ -4,12 +4,13 @@ var main_theme : AudioStream = preload("res://Sounds/Musics/Opus_1_No_6_(partial
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	# Plays the main theme of the main menu.
 	SoundManager.play_music(main_theme, true)
 
 # On Play_btn pressed
 func _on_play_btn_pressed() -> void:
+	SoundManager.play_click_sfx(0.0, 0.0)
+	
 	TransitionEffects.transition_black_circle()
 	await TransitionEffects.on_transition_finished
 	
@@ -17,5 +18,9 @@ func _on_play_btn_pressed() -> void:
 	
 # On Settings_btn pressed
 func _on_settings_btn_pressed() -> void:
+	SoundManager.play_click_sfx(0.0, 0.0)
+	
 	TransitionEffects.transition_black_circle()
 	await TransitionEffects.on_transition_finished
+	
+	get_tree().change_scene_to_file("res://Script_Scenes/Settings_Menu/settings_scene.tscn")
