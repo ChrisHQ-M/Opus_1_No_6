@@ -8,6 +8,6 @@ func _behaviour_entered() -> void:
 		SoundManager.play_blue_note(-5.0, 0.0)
 	else:
 		SoundManager.play_blue_note_B(-5.0, 0.0)
-		
+	
+	# Emits a signal that allows the player to move
 	MovementSignal.movement_signal.emit()
-	MovementSignal._addCpt()

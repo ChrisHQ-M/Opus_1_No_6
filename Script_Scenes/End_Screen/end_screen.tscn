@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cevs3nxqrhmjc"]
+
+[ext_resource type="Script" uid="uid://bpa3hyia5ulop" path="res://Script_Scenes/End_Screen/end_screen.gd" id="1_lm5ht"]
+[ext_resource type="PackedScene" uid="uid://4hgfwx5rr371" path="res://Script_Scenes/Parallax/Parallax_Level/parallax_level.tscn" id="1_tjfai"]
+[ext_resource type="FontFile" uid="uid://cjpinp4glelni" path="res://Font_text/Caveat/static/Caveat-Regular.ttf" id="2_lm5ht"]
+
+[node name="end_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lm5ht")
+
+[node name="Parallax_level" parent="." instance=ExtResource("1_tjfai")]
+
+[node name="msg" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_top = 26.0
+offset_right = 130.5
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lm5ht")
+text = "Congratulations, you completed this short game !
+                 I hope you enjoyed it !"
+
+[node name="credits" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -66.0
+offset_right = 58.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_lm5ht")
+text = "Created by : ChrisHQ"
+
+[node name="TimerChange" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="timeout" from="TimerChange" to="." method="_on_timer_change_timeout"]

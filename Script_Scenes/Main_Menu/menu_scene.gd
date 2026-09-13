@@ -1,6 +1,7 @@
 extends Control
 
 var main_theme : AudioStream = preload("res://Sounds/Musics/Opus_1_No_6_(partially restored).mp3")
+var btn_pressed : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,18 +10,22 @@ func _ready() -> void:
 
 # On Play_btn pressed
 func _on_play_btn_pressed() -> void:
-	SoundManager.play_click_sfx(0.0, 0.0)
-	
-	TransitionEffects.transition_black_circle()
-	await TransitionEffects.on_transition_finished
-	
-	get_tree().change_scene_to_file("res://Script_Scenes/Levels/Chapter_1/chapter_1.tscn")
+	if btn_pressed == false:
+		btn_pressed = true
+		SoundManager.play_click_sfx(0.0, 0.0)
+		
+		TransitionEffects.transition_black_circle()
+		await TransitionEffects.on_transition_finished
+		
+		get_tree().change_scene_to_file("res://Script_Scenes/Levels/Chapter_1/chapter_1.tscn")
 	
 # On Settings_btn pressed
 func _on_settings_btn_pressed() -> void:
-	SoundManager.play_click_sfx(0.0, 0.0)
-	
-	TransitionEffects.transition_black_circle()
-	await TransitionEffects.on_transition_finished
-	
-	get_tree().change_scene_to_file("res://Script_Scenes/Settings_Menu/settings_scene.tscn")
+	if btn_pressed == false:
+		btn_pressed = true
+		SoundManager.play_click_sfx(0.0, 0.0)
+		
+		TransitionEffects.transition_black_circle()
+		await TransitionEffects.on_transition_finished
+		
+		get_tree().change_scene_to_file("res://Script_Scenes/Settings_Menu/settings_scene.tscn")

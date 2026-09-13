@@ -11,14 +11,14 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(0.12941177, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_412m0")
-text = "Notes counter :"
+text = "Number of attempts :"
 script = ExtResource("2_bbdh3")
 
 [node name="score_label" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 89.0
-offset_right = 111.0
+offset_left = 123.0
+offset_right = 145.0
 offset_bottom = 21.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_fi55s")
